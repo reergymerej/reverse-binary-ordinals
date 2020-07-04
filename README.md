@@ -207,3 +207,119 @@ That's a lot, though.  Can we hide it and still sort based on values like these?
     11000
 
 
+## How things change
+
+As new values are added, the values change like this.
+
+
+
+    0  0
+    1  1
+
+    ---
+
+    insert at index 1
+
+    0   0
+    10  1
+    1   2
+
+    ---
+
+    insert at index 1
+
+    0    0
+    100  1
+    10   2
+    1    4
+
+    ---
+
+    insert at index 1
+
+    0     0
+    1000  1
+    100   2
+    10    4
+    1     8
+
+    ---
+
+    insert at index 1
+
+    0      0
+    10000  1
+    1000   2
+    100    4
+    10     8
+    1      16
+
+    ---
+
+    insert at index 1
+
+    0       0
+    100000  1
+    10000   2
+    1000    4
+    100     8
+    10      16
+    1       32
+
+    ---
+
+    insert at index 4
+
+    0       0
+    100000  1
+    10000   2
+    1000    4
+    11000   6
+    100     8
+    10      16
+    1       32
+
+    ---
+
+    insert at index 4
+
+    0       0
+    100000  1
+    10000   2
+    1000    4
+    101000  5
+    11000   6
+    100     8
+    10      16
+    1       32
+
+    ---
+
+    insert at index 6
+
+    0       0
+    100000  1
+    10000   2
+    1000    4
+    101000  5
+    11000   6
+    111000  7
+    100     8
+    10      16
+    1       32
+
+    ---
+
+    insert at index 10
+
+    0       0
+    100000  1
+    10000   2
+    1000    4
+    101000  5
+    11000   6
+    111000  7
+    100     8
+    10      16
+    110     24
+    1       32

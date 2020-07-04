@@ -8,6 +8,7 @@ const {
   padList,
   sort,
   toDecimalList,
+  toOrdinals,
 } = mod
 
 describe('binary', () => {
@@ -167,24 +168,101 @@ describe('sorting', () => {
   })
 })
 
-// let list = ['0', '1']
-// for (let i = 0; i < 5; i++) {
-//   list = newAtIndex(list, 1)
-// }
-//
-// list = newAtIndex(list, 4)
-// list = newAtIndex(list, 4)
-// list = newAtIndex(list, 6)
-// list = newAtIndex(list, list.length -1)
-//
-// const debug = (x) => {
-//   console.log(x.join('\n'))
-//   console.log(padList(x).join('\n'))
-//   console.log(toDecimalList(padList(x)).join('\n'))
-// }
-//
-// console.log('list')
+describe('to standard ordinal', () => {
+  it('should return the list as regular decimals', () => {
+    expect(toOrdinals([
+      '0',
+      '100000',
+      '10000',
+      '1000',
+      '101000',
+      '11000',
+      '111000',
+      '100',
+      '10',
+      '110',
+      '1',
+    ])).toEqual([
+      0,
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      16,
+      24,
+      32,
+    ])
+  })
+})
+
+const out = (() => {
+  let result = ''
+  const log = x => {
+    result += '\n' + x + '\n'
+  }
+  log.read = () => result
+  return log
+})()
+
+const debug = (x) => {
+  const padRight = (length, value) => {
+    while (value.length < length) {
+      value += ' '
+    }
+    return value
+  }
+  const getLine = (revBinaries, ordinals, index) => {
+    const length = longest(revBinaries)
+    const revBinary = revBinaries[index]
+    const ordinal = ordinals[index]
+    const left = padRight(length, revBinary) + '  ' + ordinal
+    return left
+  }
+
+  const ordinals = toOrdinals(x)
+
+  out(x
+    .map((_, i) => getLine(x, ordinals, i))
+    .join('\n')
+  )
+}
+
+let list = ['0', '1']
+out('---')
+debug(list)
+
+for (let i = 0; i < 5; i++) {
+  list = newAtIndex(list, 1)
+  out('---')
+  out('insert at index 1')
+  debug(list)
+}
+
+list = newAtIndex(list, 4)
+out('---')
+out('insert at index 4')
+debug(list)
+list = newAtIndex(list, 4)
+out('---')
+out('insert at index 4')
+debug(list)
+list = newAtIndex(list, 6)
+out('---')
+out('insert at index 6')
+debug(list)
+list = newAtIndex(list, list.length -1)
+out('---')
+out(`insert at index ${list.length -1}`)
+debug(list)
+
+
+// out('list')
 // debug(list)
+
+console.log(out.read())
 //
 // // const naturalSort = [...list.sort()]
 // // console.log('natural sort')

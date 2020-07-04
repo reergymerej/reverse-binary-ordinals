@@ -63,3 +63,5 @@ export const sort = (list) => {
   const trimmed = originalOrder.map(dropLeadingZero)
   return trimmed
 }
+
+export const toOrdinals = (list) => toDecimalList([...padList(list)])
