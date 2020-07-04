@@ -1,5 +1,8 @@
 # reverse-binary-ordinals
 
+[![Build Status](https://travis-ci.org/reergymerej/reverse-binary-ordinals.svg?branch=master)](https://travis-ci.org/reergymerej/reverse-binary-ordinals)
+http://git.reergymerej.com/reverse-binary-ordinals
+
 When inserting between existing values in a list of ordinals, you want avoid
 updating the subsequent numbers to minimze the changes.
 
