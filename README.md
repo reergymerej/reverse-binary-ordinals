@@ -66,3 +66,144 @@ In another context, it can be read as
     0 (0000)
     4 (0010)
     8 (0001)
+
+Are these still useful to show an order, though?
+
+    0
+    100000
+    10000
+    1000
+    101000
+    11000
+    111000
+    100
+    10
+    110
+    1
+
+    000000
+    100000
+    010000
+    001000
+    101000
+    011000
+    111000
+    000100
+    000010
+    000110
+    000001
+
+    0
+    1
+    2
+    4
+    5
+    6
+    7
+    8
+    16
+    24
+    32
+
+
+## Natural sort
+
+    0
+    1
+    10
+    100
+    1000
+    10000
+    100000
+    101000
+    110
+    11000
+    111000
+
+    000000
+    000001
+    000010
+    000100
+    001000
+    010000
+    100000
+    101000
+    000110
+    011000
+    111000
+
+    0
+    32
+    16
+    8
+    4
+    2
+    1
+    5
+    24
+    6
+    7
+
+## Natural sort on padded list
+
+    000000
+    000001
+    000010
+    000100
+    000110
+    001000
+    010000
+    011000
+    100000
+    101000
+    111000
+
+    0
+    32
+    16
+    8
+    24
+    4
+    2
+    6
+    1
+    5
+    7
+
+## Reverse then natural sort
+
+
+Natural sort works for left-padded binary (in proper order).
+
+We can do this by padding, reversing, sorting, reversing, converting to decimal.
+That's a lot, though.  Can we hide it and still sort based on values like these?
+
+## sorted
+
+    0
+    100000
+    10000
+    1000
+    101000
+    11000
+    111000
+    100
+    10
+    110
+    1
+
+## rando
+
+    1000
+    100
+    100000
+    10
+    1
+    0
+    10000
+    110
+    111000
+    101000
+    11000
+
+

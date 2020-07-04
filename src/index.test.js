@@ -3,8 +3,10 @@ const {
   between,
   binary,
   longest,
+  newAtIndex,
   pad,
   padList,
+  sort,
   toDecimalList,
 } = mod
 
@@ -121,12 +123,83 @@ describe('padList', () => {
   })
 })
 
-const list = ['0', '1']
-for (let i = 0; i < 3; i++) {
-  const next = between(list[0], list[1])
-  list.splice(1, 0, next)
-}
+describe('newAtIndex', () => {
+  it('should add to the list, at index, with between value', () => {
+    expect(newAtIndex([
+      '0',
+      '1',
+    ], 1)).toEqual([
+      '0',
+      '10',
+      '1',
+    ])
+  })
+})
 
-// console.log(list)
-// console.log(padList(list))
-// console.log(toDecimalList(padList(list)))
+describe('sorting', () => {
+  it('should sort a list correctly', () => {
+    const unsorted = [
+      '1000',
+      '100',
+      '100000',
+      '10',
+      '1',
+      '0',
+      '10000',
+      '110',
+      '111000',
+      '101000',
+      '11000',
+    ]
+    expect(sort(unsorted)).toEqual([
+      '0',
+      '100000',
+      '10000',
+      '1000',
+      '101000',
+      '11000',
+      '111000',
+      '100',
+      '10',
+      '110',
+      '1',
+    ])
+  })
+})
+
+// let list = ['0', '1']
+// for (let i = 0; i < 5; i++) {
+//   list = newAtIndex(list, 1)
+// }
+//
+// list = newAtIndex(list, 4)
+// list = newAtIndex(list, 4)
+// list = newAtIndex(list, 6)
+// list = newAtIndex(list, list.length -1)
+//
+// const debug = (x) => {
+//   console.log(x.join('\n'))
+//   console.log(padList(x).join('\n'))
+//   console.log(toDecimalList(padList(x)).join('\n'))
+// }
+//
+// console.log('list')
+// debug(list)
+//
+// // const naturalSort = [...list.sort()]
+// // console.log('natural sort')
+// // debug(naturalSort)
+//
+// const padded = [...padList(list)]
+// const paddedAndReversed = padded.map(x => x.split('').reverse().join(''))
+// console.log('paddedAndReversed')
+// console.log(paddedAndReversed.join('\n'))
+//
+// const paddedReversedNaturalSort = [...paddedAndReversed.sort()]
+// console.log('padded reversed natural sort')
+// // console.log(paddedReversedNaturalSort.join('\n'))
+// debug(paddedReversedNaturalSort)
+//
+// // const paddedNaturalSort = padded.sort()
+// // console.log('padded natural sort')
+// // debug(paddedNaturalSort)
